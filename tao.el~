@@ -1,0 +1,62 @@
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Tao Yue's personel configuration file 
+;; yuetao.thu@gmail.com
+;; Copyright (c) yuetao
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+
+;; configuration for color them
+(require 'color-theme)
+(color-theme-initialize)
+(color-theme-dark-blue2)
+
+
+;; hide the tool, menu and scroll bar 
+(tool-bar-mode 0)
+(menu-bar-mode 0)
+(scroll-bar-mode 0) 
+
+
+;; display time
+(display-time-mode 1)
+(setq display-time-24hr-format t)
+(setq display-time-day-and-date t) 
+
+
+;; show the path in title bar
+(setq frame-title-format "yuetao.thu@%f@%p") 
+
+
+;; smoothly scrolling
+(setq scroll-margin 3
+      scroll-conservatively 10000)
+
+;;highlight the 
+(show-paren-mode t)
+(setq show-paren-style 'parentheses)
+
+;;鼠标指针规避光标
+(mouse-avoidance-mode 'animate)
+
+;;粘贴于光标处，而不是鼠标指针处
+(setq mouse-yank-at-point t)
+
+
+;;========================================
+;; 编辑器设定
+;;========================================
+;;不生成临时文件
+;;(setq-default make-backup-files 0)
+
+;;只渲染当前屏幕语法高亮，加快显示速度
+(setq lazy-lock-defer-on-scrolling t)
+(setq font-lock-support-mode 'lazy-lock-mode)
+(setq font-lock-maximum-decoration t)
+
+;;将错误信息显示在回显区
+(condition-case err
+    (progn
+      (require 'xxx) )
+  (error
+   (message "Can't load xxx-mode %s" (cdr err))))
+
